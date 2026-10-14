@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de incidencias | ERP</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="barra">
+        <h1>ERP · Gestión de Incidencias</h1>
+    </header>
+
+    <main class="contenedor">
+        <h2>Registrar incidencia</h2>
+
+        <form id="form-incidencia" class="formulario">
+            <label for="empleado_id">ID del empleado</label>
+            <input type="number" id="empleado_id" name="empleado_id" min="1" required>
+
+            <label for="tipo">Tipo de incidencia</label>
+            <select id="tipo" name="tipo" required>
+                <option value="">Selecciona una opción</option>
+                <option value="falta">Falta</option>
+                <option value="retardo">Retardo</option>
+                <option value="permiso">Permiso</option>
+                <option value="incapacidad">Incapacidad</option>
+                <option value="vacaciones">Vacaciones</option>
+            </select>
+
+            <div class="fila">
+                <div>
+                    <label for="fecha_inicio">Fecha de inicio</label>
+                    <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+                </div>
+                <div>
+                    <label for="fecha_fin">Fecha de fin</label>
+                    <input type="date" id="fecha_fin" name="fecha_fin" required>
+                </div>
+            </div>
+
+            <label for="motivo">Motivo</label>
+            <textarea id="motivo" name="motivo" rows="3" maxlength="255" required></textarea>
+
+            <button type="submit">Guardar incidencia</button>
+        </form>
+
+        <p id="mensaje" class="mensaje" role="status"></p>
+    </main>
+</body>
+</html>
