@@ -1,5 +1,6 @@
 const form = document.getElementById('form-incidencia');
 const mensaje = document.getElementById('mensaje');
+const boton = form.querySelector('button[type="submit"]');
 
 form.addEventListener('submit', async (evento) => {
     evento.preventDefault();
@@ -16,6 +17,10 @@ form.addEventListener('submit', async (evento) => {
         return;
     }
 
+    // Evita registros duplicados si el usuario presiona el botón varias veces
+    boton.disabled = true;
+    boton.textContent = 'Guardando...';
+
     try {
         const respuesta = await fetch('incidents/create.php', {
             method: 'POST',
@@ -30,6 +35,9 @@ form.addEventListener('submit', async (evento) => {
         }
     } catch {
         mostrarMensaje('No fue posible comunicarse con el servidor.', 'error');
+    } finally {
+        boton.disabled = false;
+        boton.textContent = 'Guardar incidencia';
     }
 });
 
