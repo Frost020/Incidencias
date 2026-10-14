@@ -1,0 +1,13 @@
+# Credenciales locales de la base de datos
+config/config.php
+
+# Editores y sistema operativo
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Registros y archivos subidos
+*.log
+uploads/
